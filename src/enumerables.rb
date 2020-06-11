@@ -10,4 +10,12 @@ module Enumerable
 
     size.times { |i| yield(self[i], i) }
   end
+
+  def my_select
+    return enum_for(__method__) unless block_given?
+
+    res = []
+    my_each { |x| res << x if yield x }
+    res
+  end
 end
