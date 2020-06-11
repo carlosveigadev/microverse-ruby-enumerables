@@ -43,6 +43,17 @@ module Enumerable
     false
   end
 
+  def my_none?(fun = nil)
+    if fun
+      puts "#{__FILE__}:#{__LINE__}: warning: given block not used" if block_given?
+      !my_any?(fun)
+    elsif block_given?
+      !my_any?(&Proc.new)
+    else
+      !my_any?
+    end
+  end
+
   private
 
   def my_any_handle_func(fun)
