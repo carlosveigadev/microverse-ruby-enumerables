@@ -65,6 +65,14 @@ module Enumerable
     end
   end
 
+  def my_map
+    return enum_for(__method__) unless block_given?
+
+    result = []
+    each { |x| result << (yield x) }
+    result
+  end
+
   private
 
   def my_any_handle_func(fun)
