@@ -31,7 +31,28 @@ module Enumerable
     true
   end
 
+  def my_any?(fun = nil)
+    if fun
+      puts "#{__FILE__}:#{__LINE__}: warning: given block not used" if block_given?
+      return my_any_handle_func(fun)
+    elsif block_given?
+      my_each { |x| return true if yield x }
+    else
+      my_each { |x| return true if x }
+    end
+    false
+  end
+
   private
+
+  def my_any_handle_func(fun)
+    if fun.is_a?(Regexp)
+      my_each { |x| return true if fun.match? x.to_s }
+    else
+      my_each { |x| return true if fun === x }
+    end
+    false
+  end
 
   def my_all_handle_func(fun)
     if fun.is_a?(Regexp)
