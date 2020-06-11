@@ -54,6 +54,17 @@ module Enumerable
     end
   end
 
+  def my_count(arg = nil)
+    if arg
+      puts "#{__FILE__}:#{__LINE__}: warning: given block not used" if block_given?
+      select { |x| x == arg }.length
+    elsif block_given?
+      select(&Proc.new).length
+    else
+      length
+    end
+  end
+
   private
 
   def my_any_handle_func(fun)
