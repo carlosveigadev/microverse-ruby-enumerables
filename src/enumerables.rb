@@ -73,26 +73,27 @@ module Enumerable
     result
   end
 
+  # rubocop: disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
   def my_inject(arg1 = nil, arg2 = nil, &block)
+    # rubocop: enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
     fun = nil
     if arg1.is_a?(Symbol)
       fun = arg1
     elsif arg2.is_a?(Symbol)
       fun = arg2
     end
-
     raise LocalJumpError.new, 'no block given' unless block || arg1
     raise TypeError.new, "#{arg1} is not a symbol" unless fun.is_a?(Symbol) || block
 
     acc = arg2.is_a?(Symbol) || block ? arg1 : nil
     fun = fun.is_a?(Symbol) ? fun.to_proc : block
-
     each { |x| acc = acc.nil? ? x : fun.yield(acc, x) }
     acc
   end
 
   private
 
+  # rubocop: disable Style/CaseEquality
   def my_any_handle_func(fun)
     if fun.is_a?(Regexp)
       my_each { |x| return true if fun.match? x.to_s }
@@ -102,6 +103,8 @@ module Enumerable
     false
   end
 
+  # rubocop: enable Style/CaseEquality
+  # rubocop: disable Style/CaseEquality
   def my_all_handle_func(fun)
     if fun.is_a?(Regexp)
       my_each { |x| return false unless fun.match? x.to_s }
@@ -110,4 +113,5 @@ module Enumerable
     end
     true
   end
+  # rubocop: enable Style/CaseEquality
 end
