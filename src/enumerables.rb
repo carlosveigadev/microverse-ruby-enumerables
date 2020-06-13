@@ -1,3 +1,4 @@
+# rubocop: disable Metrics/ModuleLength
 module Enumerable
   def my_each
     return enum_for(__method__) unless block_given?
@@ -63,7 +64,7 @@ module Enumerable
     elsif block_given?
       select(&Proc.new).length
     else
-      length
+      to_a.length
     end
   end
 
@@ -97,6 +98,10 @@ module Enumerable
     acc
   end
 
+  def multiply_els
+    my_inject(&:*)
+  end
+
   private
 
   # rubocop: disable Style/CaseEquality
@@ -121,3 +126,4 @@ module Enumerable
   end
   # rubocop: enable Style/CaseEquality
 end
+# rubocop: enable Metrics/ModuleLength

@@ -1,7 +1,7 @@
 require 'spec_helper'
 require './src/enumerables'
 
-describe 'select' do
+describe 'my_select' do
   it 'should iterate over arrays and the number of iterations must be the same as the array size' do
     arr = [1, 2, 3, 4, 5]
     count = 0

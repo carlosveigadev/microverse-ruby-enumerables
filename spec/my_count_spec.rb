@@ -23,4 +23,9 @@ describe 'my_count' do
     arr = [{}, {}, []]
     expect(arr.my_count([])).to eql(1)
   end
+
+  it 'should work with ranges' do
+    expect((1..5).my_count).to eql(5)
+    expect((1..5).my_count { |x| x < 10 }).to eql(5)
+  end
 end

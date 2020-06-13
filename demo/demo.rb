@@ -71,18 +71,25 @@ puts "\n\n\n"
 puts '--my_map: ------------------------'
 puts ''
 
-p 1..4.my_map { |i| i * i } #=> [1, 4, 9, 16]
+p((1..4).my_map { |i| i * i }) #=> [1, 4, 9, 16]
 
 puts "\n\n\n"
 
 puts '--my_inject: ---------------------'
 puts ''
 
-p 5..10.my_inject(:+) #=> 45
-p 5..10.my_inject { |sum, n| sum + n } #=> 45
-p 5..10.my_inject(1, :*) #=> 151200
-p 5..10.my_inject(1) { |product, n| product * n } #=> 151200
+p((5..10).my_inject(:+)) #=> 45
+p((5..10).my_inject { |sum, n| sum + n }) #=> 45
+p((5..10).my_inject(1, :*)) #=> 151200
+p((5..10).my_inject(1) { |product, n| product * n }) #=> 151200
 l = %w[cat sheep bear].my_inject do |memo, word|
   memo.length > word.length ? memo : word
 end
 p l #=> "sheep"
+
+puts "\n\n\n"
+
+puts '--multiply_els: ---------------------'
+puts ''
+
+p((2..5).multiply_els) #=> 24
