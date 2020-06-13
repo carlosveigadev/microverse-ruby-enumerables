@@ -26,4 +26,20 @@ describe 'my_each_with_index' do
   it 'should return a enumerator when not provided with a block' do
     expect([1].my_each_with_index).to be_an Enumerator
   end
+
+  it 'should return the enumerable that\'s being operated on' do
+    expect([1].my_each_with_index {}).to eql([1])
+  end
+
+  it 'should work with hashes' do
+    res = []
+    { a: 'a', b: 'b' }.my_each_with_index { |x| res << x[1] }
+    expect(res).to eql(%w[a b])
+  end
+
+  it 'should work with ranges' do
+    res = []
+    (1..5).my_each_with_index { |x| res << x }
+    expect(res).to eql([1, 2, 3, 4, 5])
+  end
 end

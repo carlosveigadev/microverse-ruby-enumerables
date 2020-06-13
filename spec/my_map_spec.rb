@@ -24,4 +24,9 @@ describe 'my_map' do
     arr = [1, 2, 3, 4]
     expect(arr.my_map { |x| x * 2 }).to eql(arr.map { |x| x * 2 })
   end
+
+  it 'should accept methods as the first argument' do
+    arr = [1, 2, 3, 4]
+    expect(arr.my_map(&:next)).to eql(arr.map(&:next))
+  end
 end
