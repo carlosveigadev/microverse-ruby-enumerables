@@ -126,4 +126,8 @@ module Enumerable
   end
   # rubocop: enable Style/CaseEquality
 end
+
+def multiply_els(arr)
+  arr.to_a.my_inject(&:*)
+end
 # rubocop: enable Metrics/ModuleLength

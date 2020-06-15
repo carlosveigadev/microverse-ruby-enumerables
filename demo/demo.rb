@@ -92,4 +92,4 @@ puts "\n\n\n"
 puts '--multiply_els: ---------------------'
 puts ''
 
-p((2..5).multiply_els) #=> 24
+p(multiply_els(2..4)) #=> 24
