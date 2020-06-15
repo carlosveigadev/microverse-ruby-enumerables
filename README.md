@@ -8,9 +8,9 @@ It includes the following
 - `my_each`
 - `my_each_with_index`
 - `my_select`
-- `my_all`
-- `my_any`
-- `my_none`
+- `my_all?`
+- `my_any?`
+- `my_none?`
 - `my_count`
 - `my_map`
 - `my_inject`
@@ -21,7 +21,7 @@ Ruby
 
 ## Live Demo
 
-[Click for live webpage]()
+[![Run on Repl.it](https://repl.it/badge/github/WinterCore/microverse-ruby-enumerables)](https://repl.it/@WinterCore/microverse-ruby-enumerables#demo/demo.rb)
 
 - Click the run button on the top.
 - If you want to change the numbers that are being sorted. Edit the `./demo/demo.rb` file
@@ -35,11 +35,11 @@ Note: Make sure to run `bundle install` in the project's directory before trying
 
 ## Authors
 
-👤 **WinterCore**
+👤  **WinterCore**
 
 - Github: [@WinterCore](https://github.com/WinterCore)
 
-## 🤝 Contributing
+## 🤝  Contributing
 
 Contributions, issues and feature requests are welcome! Start by:
 
@@ -53,4 +53,4 @@ Contributions, issues and feature requests are welcome! Start by:
 
 ## Show your support
 
-Give a ⭐️ if you like this project!
+Give a ⭐️  if you like this project!
