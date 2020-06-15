@@ -1,4 +1,3 @@
-# rubocop: disable Metrics/ModuleLength
 module Enumerable
   def my_each
     return enum_for(__method__) unless block_given?
@@ -98,10 +97,6 @@ module Enumerable
     acc
   end
 
-  def multiply_els
-    my_inject(&:*)
-  end
-
   private
 
   # rubocop: disable Style/CaseEquality
@@ -130,4 +125,3 @@ end
 def multiply_els(arr)
   arr.to_a.my_inject(&:*)
 end
-# rubocop: enable Metrics/ModuleLength
